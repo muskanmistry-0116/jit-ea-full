@@ -107,10 +107,10 @@ const MainRoutes = {
       path: '/home-page',
       element: <HomePage />
     },
-    {
-      path: '*',
-      element: <NotFound />
-    },
+  {
+  path: '*',
+  element: <Dashboard2 />
+}
   ]
 };
 

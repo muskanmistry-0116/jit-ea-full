@@ -390,8 +390,7 @@ const generateRandomData = () => {
   };
 };
 
-let isFullscreen =  false;
-isFullscreen = true;
+
 
 const RealtimeLayoutPage2 = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -542,13 +541,13 @@ const RealtimeLayoutPage2 = () => {
   }, []);
 
   // mock data
-  // useEffect(() => {
-  //   setTelemetryData(generateRandomData());
-  //   const intervalId = setInterval(() => {
-  //     setTelemetryData(generateRandomData());
-  //   }, 5000);
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  useEffect(() => {
+    setTelemetryData(generateRandomData());
+    const intervalId = setInterval(() => {
+      setTelemetryData(generateRandomData());
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -570,10 +569,13 @@ const RealtimeLayoutPage2 = () => {
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
-  if (!telemetryData) {
-    return <div>Loading...</div>;
-  }
+  // if (!telemetryData) {
+  //   return <div>Loading...</div>;
+  // }
   const currentRecord = telemetryData[0];
+  if (!telemetryData || telemetryData.length === 0) {
+  return <div>No Data Available</div>;
+}
   const previousRecord = telemetryData.length > 1 ? telemetryData[1] : null;
 
   const totalPowerDataForWidget = {

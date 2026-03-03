@@ -13,7 +13,7 @@ export default function LogoSection() {
   return (
     <Link component={RouterLink} to={DASHBOARD_PATH} aria-label="theme-logo">
       {/* <Logo /> */}
-      <img src="https://esm.co.in/wp-content/uploads/2025/04/esm-rotate-logo.gif" alt="" srcset="" width={'140px'} />
+       <img src="https://img.freepik.com/premium-vector/modern-energy-logo-design-solution-positive_23729-1676.jpg" alt="" srcset=""height={'80px'} width={'200px'} /> 
     </Link>
   );
 }

@@ -9,20 +9,20 @@ export default function AuthGuard({ children }) {
 
   useEffect(() => {
     // 1) Initial check on mount + on route change
-    if (!hasAccessToken()) {
-      navigate('/pages/login', { replace: true, state: { from: loc.pathname } });
-      return;
-    }
+    // if (!hasAccessToken()) {
+    //   navigate('/pages/login', { replace: true, state: { from: loc.pathname } });
+    //   return;
+    // }
 
     // 2) Cross-tab/localStorage changes
     const onStorage = (e) => {
       if (e.storageArea !== localStorage) return;
       if (e.key === 'accessToken' || e.key === null) {
         // key === null means clear() was called
-        if (!hasAccessToken()) {
-          clearAuth();
-          navigate('/pages/login', { replace: true });
-        }
+        // if (!hasAccessToken()) {
+        //   clearAuth();
+        //   navigate('/pages/login', { replace: true });
+        // }
       }
     };
     window.addEventListener('storage', onStorage);
